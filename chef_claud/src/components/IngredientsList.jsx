@@ -1,5 +1,4 @@
 import React from 'react'
-
 const IngredientsList = (props) => {
      const ingredientlistitems = props.ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
   return (
@@ -11,7 +10,7 @@ const IngredientsList = (props) => {
                 <h3 className="text-2xl font-bold ">Ready for a Recipe?</h3>
                 <p className="text-gray-700 mt-2">Generate a recipe based on your available ingredients!</p>
             </div>
-            <button onClick={props.toggleRecipeShown} className="bg-[#d6450c] text-[#fafaf8] px-2 py-3 rounded-sm border border-gray-950 hover:bg-gray-300 ">
+            <button onClick={props.getRecipe} className="bg-[#d6450c] text-[#fafaf8] px-2 py-3 rounded-sm border border-gray-950 hover:bg-gray-300 ">
                 Generate a Recipe
             </button>
          </div>}
