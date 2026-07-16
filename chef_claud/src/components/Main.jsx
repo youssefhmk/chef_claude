@@ -1,10 +1,13 @@
 import React from 'react'
-
+import IngredientsList from './IngredientsList'
+import ClaudeRecipe from './ClaudeRecipe'
 const Main = () => {
-    const [ingredients,setIngredients] = React.useState([])
-    const ingredientlistitems = ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
-
-   function addingredient(form){
+    const [ingredients,setIngredients] = React.useState(["Chicken","Pasta","Garlic","Parmesan Cheese","Olive Oil","Salt","Pepper"])
+    const [recipeshown,setRecipeshown] = React.useState(false)
+    function toggleRecipeShown() {
+        setRecipeshown(prevShown => !prevShown)
+    }   
+    function addingredient(form){
     const newingredient =form.get("ingredient")
     setIngredients(previngredients => [...previngredients,newingredient])
    }
@@ -19,19 +22,8 @@ const Main = () => {
         Add Ingredient
         </button>
     </form>
-      {ingredients.length > 0 &&<section>
-        <h2 className="text-3xl font-bold mt-3">Ingredients on hand :</h2>
-         <ul className="mt-3 list-disc pl-5 space-y-1" >  {ingredientlistitems}</ul>
-         {ingredients.length >3 && <div className="flex justify-between items-center mt-8 bg-amber-100 p-4 rounded-sm border border-gray-950">
-            <div>
-                <h3 className="text-2xl font-bold ">Ready for a Recipe?</h3>
-                <p className="text-gray-700 mt-2">Generate a recipe based on your available ingredients!</p>
-            </div>
-            <button className="bg-[#d6450c] text-[#fafaf8] px-2 py-3 rounded-sm border border-gray-950 hover:bg-gray-300 ">
-                Generate a Recipe
-            </button>
-         </div>}
-        </section>}
+      {ingredients.length > 0 && <IngredientsList ingredients={ingredients} toggleRecipeShown={toggleRecipeShown} />}
+        {recipeshown && <ClaudeRecipe/>}
         </div>
         
     </main>

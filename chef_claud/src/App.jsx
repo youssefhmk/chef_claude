@@ -4,10 +4,12 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+
 import React from 'react'
 import Header from './components/header'
 import Main from './components/Main'
-
+import IngredientsList from './components/IngredientsList'
+import ClaudeRecipe from './components/ClaudeRecipe'
 const App = () => {
   return (
     <>
